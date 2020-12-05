@@ -9,10 +9,11 @@ app.use(express.static(__dirname + '/dist'));
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
 
-app.get('/*', function(req,res) {
-  res.sendFile(path.join(__dirname+'/dist/index.html'));
+app.get('/*', function (req, res) {
+  res.sendFile('index.html', { root: 'dist/new-rencontre-frontend' }
+  );
 });
 
-console.log('Console listening');
+console.log(`Running on port ${process.env.PORT || 8080}`);
 
 
