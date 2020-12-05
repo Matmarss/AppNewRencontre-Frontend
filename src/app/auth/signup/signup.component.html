@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h2>Créer un compte</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="lastName">Nom</label>
+        <input type="text" id="lastName" class="form-control" formControlName="lastName">
+      </div>
+      <div class="form-group">
+        <label for="firstName">Prénom</label>
+        <input type="text" id="firstName" class="form-control" formControlName="firstName">
+      </div>
+      <div class="form-group">
+        <label for="genre">Genre</label>
+        <select id="genre" class="form-control" formControlName="genre">
+          <option value="masculin">Masculin</option>
+          <option value="feminin">Féminin</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="naissance">Date de naissance</label>
+        <input type="text" id="naissance" class="form-control" formControlName="naissance">
+      </div>
+      <div class="form-group">
+        <label for="email">Adresse mail</label>
+        <input type="text" id="email" class="form-control" formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" class="form-control" formControlName="password">
+      </div>
+      <div class="form-group">
+        <label for="password">Confirmation de votre mot de passe</label>
+        <input type="password" id="confPWD" class="form-control" formControlName="confPWD">
+        <div *ngIf="correct == false">Mot de passe incorrect</div>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="signupForm.invalid">Créer mon compte</button>
+      <button class="btn btn-warning"><a routerLink="">Accueil</a></button>
+    </form>
+    <p class="text-danger">{{ errorMessage }}</p>
+  </div>
+</div>
